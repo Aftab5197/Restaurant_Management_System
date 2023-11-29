@@ -1,0 +1,75 @@
+{% extends 'display.html'%}
+{% block navbar %}
+{% endblock %}
+{% block content %}
+
+  <div class="container py-5 h-40">
+    <div class="row d-flex justify-content-center align-items-center h-40">
+      <div class="col-12 col-md-8 col-lg- col-xl-5">
+        <div class="card bg-white text-dark" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+
+            <div class="mb-md-5 mt-md-4 pb-5">
+                <form method="post">
+             {% csrf_token %}
+                    {% if messages %}
+                    {{ message.tags }}
+                    <div class="alert alert-primary" role="alert">
+                    {% for message in messages %}
+                    {{ message }}
+                    {% endfor %}
+                    </div>
+                    {% endif %}
+                    <br>
+                    <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                     <div class="input-group"> <input type="text" placeholder="First Name" name="first_name" class="form-control force text-muted" ></div>
+
+                    </div>
+                </div>
+            </div>
+                    <br>
+                    <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                     <div class="input-group"> <input type="text" placeholder="Last Name" name="last_name" class="form-control force text-muted" ></div>
+
+                    </div>
+                </div>
+            </div>
+                    <br>
+                <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                     <div class="input-group"> <input type="text" placeholder="username" name="username" class="form-control force text-muted" ></div>
+
+                    </div>
+                </div>
+            </div>
+
+                <br>
+                <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                     <div class="input-group"> <input type="password" placeholder="password" name="pass" class="form-control force text-muted" ></div>
+
+                    </div>
+                </div>
+                </div>
+                <br>
+
+              <button class="btn btn-primary btn-lg px-5" type="submit">Sign up</button>
+                    <hr>
+                <div class=" d-flex flex-column text-center px-5 mt-3 mb-3"> <small class="agree-text text-info">Already have account login below</small>
+                    <a href="{% url 'login' %}" class="btn btn-primary btn-lg px-5" type="submit" >Log in</a>
+                </div>
+
+            </form>
+         </div>
+    </div>
+  </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

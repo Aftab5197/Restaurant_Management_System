@@ -1,0 +1,63 @@
+{% extends 'display.html'%}
+{% block content %}
+<div class="container mt-5 mb-5 d-flex justify-content-center shadow p-3 mb-5 bg-white rounded">
+    <div class="card-muted px-1 py-4 ">
+        <div class="card-body ">
+            <form method="post" >
+             {% csrf_token %}
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                     <div class="input-group"> <input type="text"  value="{{ food.item_name }}" placeholder="Item Name" name="tbitem" class="form-control force text-muted" ></div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="input-group"> <select name="ddlcuisine" class="form-control" >
+                                               <option>{{food.cuisine}}</option>
+                                               {% for c in cuisine %}
+                                              <option>{{c.cname}}</option>
+                                             {% endfor %}
+                        </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="input-group"> <input type="text" value="{{ food.menu_type }}" name="tbmenu" class="form-control" placeholder="Menu Type"></div>
+                    </div>
+                </div>
+            </div>
+              <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="input-group"><input type="text" value="{{ food.timings }}" name="tbtimings" class="form-control" placeholder="Timings"></div>
+                    </div>
+                </div>
+            </div>
+              <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="input-group"> <input type="text"  value="{{ food.food_type }}" name="tbtype" class="form-control" placeholder="Food Type" ></div>
+                    </div>
+                </div>
+            </div>
+               <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="input-group"><input type="text" value="{{ food.price }}"  name="tbprice" class="form-control" placeholder="Price" ></div>
+                    </div>
+                </div>
+            </div>
+            <div class=" d-flex flex-column text-center px-5 mt-3 mb-3"> <large class="agree-text text-info">Update Recipies By Clicking on Update Button</large>  </div>
+            <div class="text-center"><button type="submit" class="btn btn-outline-success btn-block confirm-button"><i class="bi bi-pencil-square"></i>Update</button></div>
+       </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
